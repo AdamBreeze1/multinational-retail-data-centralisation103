@@ -3,3 +3,4 @@ Test_File.py
 Test.ipynb
 users_df.csv
 cleaned_df.csv
+__pycache__
