@@ -5,7 +5,7 @@ import psycopg2
 
 
 class DatabaseConnector:
-    def __init__(self, file_path):
+    def __init__(self, file_path = "db_creds.yaml"):
         self.file_path = file_path
     
     def read_db_creds(self):
@@ -25,7 +25,9 @@ class DatabaseConnector:
         table_list = inspector.get_table_names()
         print(table_list)
 
-DBC = DatabaseConnector("db_creds.yaml")
 
-#  DBC.init_db_engine()
-DBC.list_db_tables()
+DBC = DatabaseConnector()
+
+if __name__ == "__main__":
+    DBC.init_db_engine()
+    DBC.list_db_tables()
