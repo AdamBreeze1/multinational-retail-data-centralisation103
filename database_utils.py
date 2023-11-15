@@ -5,11 +5,11 @@ import psycopg2
 
 
 class DatabaseConnector:
-    def __init__(self, file_path = "db_creds.yaml"):
-        self.file_path = file_path
+    def __init__(self, creds_file_path = "db_creds.yaml"):
+        self.creds_file_path = creds_file_path
     
     def read_db_creds(self):
-        with open(self.file_path, 'r') as file:
+        with open(self.creds_file_path, 'r') as file:
             data = yaml.safe_load(file)
         return data
     
@@ -24,7 +24,17 @@ class DatabaseConnector:
         inspector = inspect(engine)
         table_list = inspector.get_table_names()
         print(table_list)
+        
+    def upload_to_db(self, df, table_name):
+        """
+        Upload a Pandas DataFrame to a specified database table.
 
+        Parameters:
+        - df (pd.DataFrame): DataFrame to be uploaded.
+        - table_name (str): Name of the destination database table.
+        """
+        with self.init_db_engine().connect() as con:
+            df.to_sql(table_name, con, if_exists='replace', index=False)
 
 DBC = DatabaseConnector()
 

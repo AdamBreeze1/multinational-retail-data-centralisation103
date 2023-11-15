@@ -65,6 +65,15 @@ class DataCleaning:
             - pd.DataFrame: DataFrame with the converted column.
             """
             df[column_name] = df[column_name].apply(parse)
-            df[column_name] = pd.to_datetime(df[column_name], infer_datetime_format=True)
+            df[column_name] = pd.to_datetime(df[column_name])
             return df
         
+        def check_for_duplicates(self, df, column_names):
+            """
+            Parameters:
+            - df (pd.DataFrame): Input DataFrame.
+            - column_names (str): Name of the column(s) to be checked for duplicates.
+            """
+            duplicates_mask = df[column_names].duplicated(keep=False)
+            duplicated_df = df[duplicates_mask]
+            return duplicated_df
