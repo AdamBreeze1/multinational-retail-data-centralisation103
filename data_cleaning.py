@@ -16,7 +16,7 @@ class DataCleaning:
             Returns:
             pd.DataFrame: DataFrame after dropping null values.
             """
-            removed_null_df = df.dropna()
+            removed_null_df = df.replace('NULL', pd.NA).dropna()
             return removed_null_df
 
         def clean_rows_by_length_condition(self, df, column_name, max_length=3):
