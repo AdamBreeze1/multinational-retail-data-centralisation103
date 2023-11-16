@@ -13,5 +13,6 @@ class DataExtraction:
             return df
         
     def retrieve_pdf_data(self, path_to_pdf="https://data-handling-public.s3.eu-west-1.amazonaws.com/card_details.pdf"):
-        df = tabula.read_pdf(path_to_pdf)
+        list_of_df = tabula.read_pdf(path_to_pdf, pages="all")
+        df = pd.concat(list_of_df, ignore_index=True)
         return df
