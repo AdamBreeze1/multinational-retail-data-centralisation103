@@ -36,8 +36,8 @@ class DatabaseConnector:
         with self.init_db_engine().connect() as con:
             df.to_sql(table_name, con, if_exists='replace', index=False)
 
-DBC = DatabaseConnector()
 
 if __name__ == "__main__":
+    DBC = DatabaseConnector()
     DBC.init_db_engine()
     DBC.list_db_tables()

@@ -77,3 +77,41 @@ class DataCleaning:
             duplicates_mask = df[column_names].duplicated(keep=False)
             duplicated_df = df[duplicates_mask]
             return duplicated_df
+        
+        def convert_product_weight(self, weight_str):
+            '''
+            Converts a string of various weights into a float in kg
+
+            Parameter:
+            - weight_str (string): single weight string to convert
+            '''
+            if 'x' in weight_str:
+                # Handle cases like '5 x 820g'
+                parts = weight_str.split('x')
+                multiplier = float(parts[0].strip())
+                weight_value = float(parts[1].replace('g', '').strip()) / 1000  # Convert grams to kilograms
+                total_weight_value = multiplier * weight_value
+                return total_weight_value
+            else:
+                # Handle other cases ending 'kg', 'g' or 'ml'
+                weight_value = float(weight_str.replace('kg', '').replace('g', '').replace('ml', '').replace('oz', '').strip())
+                if 'kg' in weight_str:
+                    return weight_value
+                elif 'oz' in weight_str:
+                    weight_value *= (28.413075/1000) # Convert oz to kg
+                    return weight_value
+                else:
+                    weight_value /= 1000  # Convert grams or ml (estimate) to kilograms
+                    return weight_value
+        
+        def concatenate_columns(self, df, new_column, columns, separator=' '):
+            '''
+            Concatinates values in a columns to create a new column
+
+            Parameters:
+            - df (pd.DataFrame): Input DataFrame.
+            - columns (list): List of columns in order you want them concatinated
+            - separator (string): default is ' '
+            '''
+            df[new_column] = df[columns].astype(str).apply(lambda row: separator.join(row), axis=1)
+            return df
