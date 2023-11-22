@@ -26,16 +26,19 @@ class DatabaseConnector:
         print(table_list)
         
     def upload_to_db(self, df, table_name):
-        """
+        '''
         Upload a Pandas DataFrame to a specified database table.
 
         Parameters:
         - df (pd.DataFrame): DataFrame to be uploaded.
         - table_name (str): Name of the destination database table.
-        """
-        with self.init_db_engine().connect() as con:
-            df.to_sql(table_name, con, if_exists='replace', index=False)
-
+        '''
+        creds = self.read_db_creds()
+        db_url = f"postgresql+psycopg2://{creds['sales_data_USER']}:{creds['sales_data_PASSWORD']}@{creds['sales_data_HOST']}:{creds['sales_data_PORT']}/{creds['sales_data_DATABASE']}"
+        engine = create_engine(db_url)
+        df.to_sql(table_name, engine)
+            
+            
 
 if __name__ == "__main__":
     DBC = DatabaseConnector()
