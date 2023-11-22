@@ -1,12 +1,12 @@
 # Multinational Retail Data Centralisation Project
 
 ## Table of Contents
-1. (Brief)[#Brief]
-1. (Project Discription)[#Project-Discription]
-1. (Installation instructions)[#Installation-instructions]
-1. (Usage instructions)[#Usage-instructions]
-1. (File Structure)[#File-Structure]
-1. (Liscense Information)[#Liscense-Information]
+1. (Brief)[#brief]
+1. (Project Discription)[#project-discription]
+1. (Installation Instructions)[#installation-instructions]
+1. (Usage Instructions)[#usage-instructions]
+1. (File Structure)[#file-structure]
+1. (Liscense Information)[#liscense-information]
 
 ## Brief
 You work for a multinational company that sells various goods across the globe.
@@ -21,14 +21,14 @@ Order of actions:
 1. Clean the data (removing junk data, corecting typos, changing data types, etc...)
 1. Upload the data to a central postgeSQL database.
 
-## Installation instructions
+## Installation Instructions
 Copy the repository from the GitHub page
 https://github.com/AdamBreeze1/multinational-retail-data-centralisation103.git
 
 Then clone in your terminal using:
 'git clone https://github.com/example_repository folder-name'
 
-## Usage instructions
+## Usage Instructions
 The credentials for this demonstration are hidden to protect the sources, however, the below is how the project works.
 
 1. Run all in "main.ipynb" 
