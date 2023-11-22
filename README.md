@@ -1,12 +1,12 @@
 # Multinational Retail Data Centralisation Project
 
 ## Table of Contents
-1. (Brief)[#brief]
-1. (Project Discription)[#project-discription]
-1. (Installation Instructions)[#installation-instructions]
-1. (Usage Instructions)[#usage-instructions]
-1. (File Structure)[#file-structure]
-1. (Liscense Information)[#liscense-information]
+1. [Brief](#brief)
+1. [Project Discription](#project-discription)
+1. [Installation Instructions](#installation-instructions)
+1. [Usage Instructions](#usage-instructions)
+1. [File Structure](#file-structure)
+1. [Liscense Information](#liscense-information)
 
 ## Brief
 You work for a multinational company that sells various goods across the globe.
