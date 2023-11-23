@@ -18,8 +18,10 @@ This project aim is the develope multiple data pipelines to access the sales dat
 
 Order of actions:
 1. Retrieve data from different sources.
-1. Clean the data (removing junk data, corecting typos, changing data types, etc...)
-1. Upload the data to a central postgeSQL database.
+1. Clean the data (removing junk data, corecting typos, etc...)
+1. Upload the data to a central PostgeSQL database.
+1. Use SQL to correct the data types.
+1. Link the tables together with the central orders_table by setting the primary and foreign keys.
 
 ## Installation Instructions
 Copy the repository from the GitHub page
@@ -43,6 +45,7 @@ The credentials for this demonstration are hidden to protect the sources, howeve
 - store_header.py (not added to repository)
 - Folder original_dfs
 - Folder cleaned_dfs
+- Folder SQL Files
 
 
 ## License information
