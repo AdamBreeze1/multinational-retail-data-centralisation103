@@ -22,6 +22,14 @@ Order of actions:
 1. Upload the data to a central PostgeSQL database.
 1. Use SQL to correct the data types.
 1. Link the tables together with the central orders_table by setting the primary and foreign keys.
+1. Query the data to answer questions from the boss to give up-to-date information on the sales data.
+
+## What I Have Learned
+This project has helped me develop Data Engineering skills through real-world practical applications such as:
+- Creating data pipelines from a variety of sources.
+- Cleaning data through Python functions.
+- Developing a star based database schema with and correcting data types.
+- Write SQL queries that provide up to date information.
 
 ## Installation Instructions
 Copy the repository from the GitHub page
@@ -34,6 +42,7 @@ Then clone in your terminal using:
 The credentials for this demonstration are hidden to protect the sources, however, the below is how the project works.
 
 1. Run all in "main.ipynb" 
+1. Open and run the required .sql query from "Folder SQL Files" in PGAdmin.
 
 ## File Structure
 - .gitignore
@@ -49,3 +58,4 @@ The credentials for this demonstration are hidden to protect the sources, howeve
 
 
 ## License information
+This project is open-source and available under the MIT License.
