@@ -1,5 +1,3 @@
-from database_utils import DatabaseConnector
-from data_extraction import DataExtraction
 import pandas as pd
 from dateutil.parser import parse
 
