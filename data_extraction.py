@@ -10,20 +10,20 @@ import json
 
 
 class DataExtraction:
-    def read_rds_table(self, table_name):
+    def read_rds_table(self, con, table_name):
         '''
         Reads the table and returns a DataFrame
 
         Parameters:
+        con (engine): the database engine used for connection
         table_name (string): table name you want to read 
 
         Returns:
         pd.DataFrame: of the table
         '''
-        with database_connector.init_db_engine().connect() as con:
-            query = f"SELECT * FROM {table_name}"
-            df = pd.read_sql_query(query, con=con, index_col="index")
-            return df
+        query = f"SELECT * FROM {table_name}"
+        df = pd.read_sql_query(query, con=con, index_col="index")
+        return df
         
     def retrieve_pdf_data(self, path_to_pdf):
         '''
